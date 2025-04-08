@@ -12,14 +12,14 @@ This API provides three simple utilities to transform text using different metho
 
 ## 📑 Table of Contents
 
-- [Getting Started](#getting-started)
-- [Install Dependencies](#install-dependencies)
-- [Development Mode](#development-mode)
-- [Production Mode](#production-mode)
-- [Usage](#usage)
+- [Getting Started](#-getting-started)
+- [Install Dependencies](#-install-dependencies)
+- [Development Mode](#-development-mode)
+- [Production Mode](#-production-mode)
+- [Usage](#-usage)
 - [API Tools](#-api-tools)
 - [Example curl Commands](#-example-curl-commands)
-- [Questions or Issues?](#questions-or-issues)
+- [Questions or Issues?](#-questions-or-issues)
 
 ---
 
