@@ -75,6 +75,57 @@ app.get("/functions/KelvinROT13", (req, res) => {
   });
 });
 
+// Emoji Translator
+const emojiMap = {
+  hello: "👋😊",
+  love: "❤️",
+  cat: "🐱",
+  dog: "🐶",
+  pizza: "🍕",
+  cool: "😎",
+  fire: "🔥",
+  happy: "😁",
+  sad: "😢",
+  yes: "✅",
+  no: "❌",
+};
+
+function translateToEmoji(text) {
+  return text
+    .split(" ")
+    .map((word) => emojiMap[word.toLowerCase()] || word)
+    .join(" ");
+}
+app.post("/functions/KelvinEmojiTranslator", (req, res) => {
+  const { input } = req.body;
+
+  if (typeof input !== "string") {
+    return res.status(400).json({ error: "Input must be a string." });
+  }
+
+  const output = translateToEmoji(input);
+
+  res.json({ input, output });
+});
+
+app.get("/functions/KelvinEmojiTranslator", (req, res) => {
+  res.json({
+    name: "KelvinEmojiTranslator",
+    description:
+      "Converts words into corresponding emojis based on common expressions.",
+    input: {
+      type: "string",
+      description: "The text you want to translate into emojis.",
+      example: "hello I love pizza",
+    },
+    output: {
+      type: "string",
+      description: "The emoji-translated version of your input.",
+      example: "👋😊 I ❤️ 🍕",
+    },
+  });
+});
+
 // Test page
 app.get("/", (req, res) => {
   res.send("Hello World!");
